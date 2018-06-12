@@ -11,11 +11,27 @@ const (
 	ButtonTypeAccountUnlink ButtonType = "account_unlink"
 )
 
+type WebviewHeightRatio string
+
+const (
+	WebviewHeightRatioCompact WebviewHeightRatio = "compact"
+	WebviewHeightRatioTall    WebviewHeightRatio = "tall"
+	WebviewHeightRatioFull    WebviewHeightRatio = "full"
+)
+
+type WebviewShareButton string
+
+const (
+	WebviewShareButtonHide WebviewShareButton = "hide"
+)
+
 type Button struct {
-	Type    ButtonType `json:"type"`
-	Title   string     `json:"title,omitempty"`
-	URL     string     `json:"url,omitempty"`
-	Payload string     `json:"payload,omitempty"`
+	Type               ButtonType         `json:"type"`
+	Title              string             `json:"title,omitempty"`
+	URL                string             `json:"url,omitempty"`
+	Payload            string             `json:"payload,omitempty"`
+	WebviewHeightRatio WebviewHeightRatio `json:"webview_height_ratio,omitempty"`
+	WebviewShareButton WebviewShareButton `json:"webview_share_button,omitempty"`
 }
 
 // NewWebURLButton creates a button used in ButtonTemplate that redirects user to external address upon clicking the URL
